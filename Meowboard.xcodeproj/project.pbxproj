@@ -14,6 +14,8 @@
 		5026663419D0E07300DC0920 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5026663319D0E07300DC0920 /* Images.xcassets */; };
 		5026663719D0E07300DC0920 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5026663519D0E07300DC0920 /* LaunchScreen.xib */; };
 		5026664319D0E07400DC0920 /* MeowboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5026664219D0E07400DC0920 /* MeowboardTests.swift */; };
+		5026665519D0E08D00DC0920 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5026665419D0E08D00DC0920 /* KeyboardViewController.swift */; };
+		5026665819D0E08D00DC0920 /* MeowboardKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5026665019D0E08D00DC0920 /* MeowboardKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,7 +26,35 @@
 			remoteGlobalIDString = 5026662319D0E07300DC0920;
 			remoteInfo = Meowboard;
 		};
+		5026665619D0E08D00DC0920 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5026661C19D0E07300DC0920 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5026664F19D0E08D00DC0920;
+			remoteInfo = MeowboardKeyboard;
+		};
+		5026665919D0E08D00DC0920 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5026661C19D0E07300DC0920 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5026664F19D0E08D00DC0920;
+			remoteInfo = MeowboardKeyboard;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5026665E19D0E08D00DC0920 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				5026665819D0E08D00DC0920 /* MeowboardKeyboard.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5026662419D0E07300DC0920 /* Meowboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meowboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,6 +68,9 @@
 		5026663C19D0E07400DC0920 /* MeowboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeowboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5026664119D0E07400DC0920 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5026664219D0E07400DC0920 /* MeowboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeowboardTests.swift; sourceTree = "<group>"; };
+		5026665019D0E08D00DC0920 /* MeowboardKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MeowboardKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5026665319D0E08D00DC0920 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5026665419D0E08D00DC0920 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +88,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5026664D19D0E08D00DC0920 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -63,6 +103,7 @@
 			children = (
 				5026662619D0E07300DC0920 /* Meowboard */,
 				5026663F19D0E07400DC0920 /* MeowboardTests */,
+				5026665119D0E08D00DC0920 /* MeowboardKeyboard */,
 				5026662519D0E07300DC0920 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,6 +113,7 @@
 			children = (
 				5026662419D0E07300DC0920 /* Meowboard.app */,
 				5026663C19D0E07400DC0920 /* MeowboardTests.xctest */,
+				5026665019D0E08D00DC0920 /* MeowboardKeyboard.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -115,6 +157,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		5026665119D0E08D00DC0920 /* MeowboardKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				5026665419D0E08D00DC0920 /* KeyboardViewController.swift */,
+				5026665219D0E08D00DC0920 /* Supporting Files */,
+			);
+			path = MeowboardKeyboard;
+			sourceTree = "<group>";
+		};
+		5026665219D0E08D00DC0920 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5026665319D0E08D00DC0920 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -125,10 +184,13 @@
 				5026662019D0E07300DC0920 /* Sources */,
 				5026662119D0E07300DC0920 /* Frameworks */,
 				5026662219D0E07300DC0920 /* Resources */,
+				5026665E19D0E08D00DC0920 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5026665719D0E08D00DC0920 /* PBXTargetDependency */,
+				5026665A19D0E08D00DC0920 /* PBXTargetDependency */,
 			);
 			name = Meowboard;
 			productName = Meowboard;
@@ -153,6 +215,23 @@
 			productReference = 5026663C19D0E07400DC0920 /* MeowboardTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		5026664F19D0E08D00DC0920 /* MeowboardKeyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5026665B19D0E08D00DC0920 /* Build configuration list for PBXNativeTarget "MeowboardKeyboard" */;
+			buildPhases = (
+				5026664C19D0E08D00DC0920 /* Sources */,
+				5026664D19D0E08D00DC0920 /* Frameworks */,
+				5026664E19D0E08D00DC0920 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MeowboardKeyboard;
+			productName = MeowboardKeyboard;
+			productReference = 5026665019D0E08D00DC0920 /* MeowboardKeyboard.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -168,6 +247,9 @@
 					5026663B19D0E07400DC0920 = {
 						CreatedOnToolsVersion = 6.0.1;
 						TestTargetID = 5026662319D0E07300DC0920;
+					};
+					5026664F19D0E08D00DC0920 = {
+						CreatedOnToolsVersion = 6.0.1;
 					};
 				};
 			};
@@ -186,6 +268,7 @@
 			targets = (
 				5026662319D0E07300DC0920 /* Meowboard */,
 				5026663B19D0E07400DC0920 /* MeowboardTests */,
+				5026664F19D0E08D00DC0920 /* MeowboardKeyboard */,
 			);
 		};
 /* End PBXProject section */
@@ -202,6 +285,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5026663A19D0E07400DC0920 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5026664E19D0E08D00DC0920 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -229,6 +319,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5026664C19D0E08D00DC0920 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5026665519D0E08D00DC0920 /* KeyboardViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -236,6 +334,16 @@
 			isa = PBXTargetDependency;
 			target = 5026662319D0E07300DC0920 /* Meowboard */;
 			targetProxy = 5026663D19D0E07400DC0920 /* PBXContainerItemProxy */;
+		};
+		5026665719D0E08D00DC0920 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5026664F19D0E08D00DC0920 /* MeowboardKeyboard */;
+			targetProxy = 5026665619D0E08D00DC0920 /* PBXContainerItemProxy */;
+		};
+		5026665A19D0E08D00DC0920 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5026664F19D0E08D00DC0920 /* MeowboardKeyboard */;
+			targetProxy = 5026665919D0E08D00DC0920 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -392,6 +500,30 @@
 			};
 			name = Release;
 		};
+		5026665C19D0E08D00DC0920 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MeowboardKeyboard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		5026665D19D0E08D00DC0920 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MeowboardKeyboard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -417,6 +549,14 @@
 			buildConfigurations = (
 				5026664A19D0E07400DC0920 /* Debug */,
 				5026664B19D0E07400DC0920 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5026665B19D0E08D00DC0920 /* Build configuration list for PBXNativeTarget "MeowboardKeyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5026665C19D0E08D00DC0920 /* Debug */,
+				5026665D19D0E08D00DC0920 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
