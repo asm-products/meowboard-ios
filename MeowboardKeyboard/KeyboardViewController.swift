@@ -181,8 +181,11 @@ class KeyboardViewController: UIInputViewController {
         
         var url = NSURL(string: "http://api.giphy.com/v1/gifs/search?q=\(cleanedQuery)&api_key=\(API_KEY)")
         var task = NSURLSession.sharedSession().dataTaskWithURL(url) {(data, response, error) in
-            var parsedData: NSArray? = self.parseJson(data)["data"] as? NSArray
-            var gifUrl = parsedData?[0]["embed_url"] as NSString
+            var parsedData : NSArray = self.parseJson(data)["data"] as NSArray
+            var imageObject : NSDictionary = parsedData[0] as NSDictionary
+            var images : NSDictionary = imageObject["images"] as NSDictionary
+            var fixedWidth : NSDictionary = images["fixed_width"] as NSDictionary
+            var gifUrl : String = fixedWidth["url"] as String
             
             proxy.insertText(gifUrl)
         }
