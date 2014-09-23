@@ -14,9 +14,11 @@
 		5026663419D0E07300DC0920 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5026663319D0E07300DC0920 /* Images.xcassets */; };
 		5026663719D0E07300DC0920 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5026663519D0E07300DC0920 /* LaunchScreen.xib */; };
 		5026664319D0E07400DC0920 /* MeowboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5026664219D0E07400DC0920 /* MeowboardTests.swift */; };
-		5026665519D0E08D00DC0920 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5026665419D0E08D00DC0920 /* KeyboardViewController.swift */; };
 		5026665819D0E08D00DC0920 /* MeowboardKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5026665019D0E08D00DC0920 /* MeowboardKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		5026665F19D0F5F900DC0920 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5026665419D0E08D00DC0920 /* KeyboardViewController.swift */; };
+		507D54C519D144D100B03F4D /* delete-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 507D54C219D144D100B03F4D /* delete-icon.png */; };
+		507D54C719D145E400B03F4D /* globe-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 507D54C619D145E400B03F4D /* globe-icon.png */; };
+		507D54C919D149A500B03F4D /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507D54C819D149A500B03F4D /* KeyboardViewController.swift */; };
+		507D54CB19D1522E00B03F4D /* Keyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 507D54CA19D1522E00B03F4D /* Keyboard.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,7 +73,10 @@
 		5026664219D0E07400DC0920 /* MeowboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeowboardTests.swift; sourceTree = "<group>"; };
 		5026665019D0E08D00DC0920 /* MeowboardKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MeowboardKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		5026665319D0E08D00DC0920 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5026665419D0E08D00DC0920 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		507D54C219D144D100B03F4D /* delete-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "delete-icon.png"; path = "../../../Desktop/delete-icon.png"; sourceTree = "<group>"; };
+		507D54C619D145E400B03F4D /* globe-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "globe-icon.png"; path = "../../../Downloads/globe-icon.png"; sourceTree = "<group>"; };
+		507D54C819D149A500B03F4D /* KeyboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardViewController.swift; path = ../../../Desktop/KeyboardViewController.swift; sourceTree = "<group>"; };
+		507D54CA19D1522E00B03F4D /* Keyboard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Keyboard.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,8 +166,11 @@
 		5026665119D0E08D00DC0920 /* MeowboardKeyboard */ = {
 			isa = PBXGroup;
 			children = (
-				5026665419D0E08D00DC0920 /* KeyboardViewController.swift */,
+				507D54C819D149A500B03F4D /* KeyboardViewController.swift */,
+				507D54C619D145E400B03F4D /* globe-icon.png */,
+				507D54C219D144D100B03F4D /* delete-icon.png */,
 				5026665219D0E08D00DC0920 /* Supporting Files */,
+				507D54CA19D1522E00B03F4D /* Keyboard.xib */,
 			);
 			path = MeowboardKeyboard;
 			sourceTree = "<group>";
@@ -298,6 +306,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				507D54C719D145E400B03F4D /* globe-icon.png in Resources */,
+				507D54C519D144D100B03F4D /* delete-icon.png in Resources */,
+				507D54CB19D1522E00B03F4D /* Keyboard.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,7 +322,6 @@
 				5026662F19D0E07300DC0920 /* ViewController.swift in Sources */,
 				5026662D19D0E07300DC0920 /* Meowboard.xcdatamodeld in Sources */,
 				5026662A19D0E07300DC0920 /* AppDelegate.swift in Sources */,
-				5026665F19D0F5F900DC0920 /* KeyboardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,7 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5026665519D0E08D00DC0920 /* KeyboardViewController.swift in Sources */,
+				507D54C919D149A500B03F4D /* KeyboardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,6 +569,7 @@
 				5026664819D0E07400DC0920 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5026664919D0E07400DC0920 /* Build configuration list for PBXNativeTarget "MeowboardTests" */ = {
 			isa = XCConfigurationList;
@@ -567,6 +578,7 @@
 				5026664B19D0E07400DC0920 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5026665B19D0E08D00DC0920 /* Build configuration list for PBXNativeTarget "MeowboardKeyboard" */ = {
 			isa = XCConfigurationList;
@@ -575,6 +587,7 @@
 				5026665D19D0E08D00DC0920 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
