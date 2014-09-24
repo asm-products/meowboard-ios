@@ -41,8 +41,10 @@ class KeyboardViewController: UIInputViewController {
                 
                 scrollView.contentSize = contentRect.size;
             } else if let fixedView = subview as? UIView {
-                for button in fixedView.subviews as [UIButton] {
-                    button.addTarget(self, action: "didTapButton:", forControlEvents: .TouchUpInside)
+                for object in fixedView.subviews as [AnyObject] {
+                    if let button = object as? UIButton {
+                        button.addTarget(self, action: "didTapButton:", forControlEvents: .TouchUpInside)
+                    }
                 }
             }
         }
@@ -57,6 +59,10 @@ class KeyboardViewController: UIInputViewController {
 
     func cleanQuery(query: String) -> String {
         return query.stringByReplacingOccurrencesOfString(" ", withString: "+", options: nil, range: nil).lowercaseString
+    }
+    
+    func cleanTitle(title: String) -> String {
+        return title.stringByReplacingOccurrencesOfString(" ", withString: "_", options: nil, range: nil).lowercaseString
     }
 
     func didTapButton(sender: AnyObject) {
@@ -77,12 +83,38 @@ class KeyboardViewController: UIInputViewController {
     }
     
     func getDefaultGifAndSetAsButtonBackground(button: UIButton) {
-        var title = cleanQuery(button.titleForState(.Normal) as String!)
-        var gifUrl = NSBundle.mainBundle().URLForResource(title, withExtension: "gif")
-        var imageData = NSData(contentsOfURL: gifUrl!)
-        var backgroundImage = UIImage.animatedImageWithData(imageData)
+        var cleanedQuery = cleanQuery(button.titleForState(.Normal) as String!)
+        var url = NSURL(string: "http://api.giphy.com/v1/gifs/search?q=\(cleanedQuery)&api_key=\(API_KEY)")
+        var task = NSURLSession.sharedSession().dataTaskWithURL(url) {(data, response, error) in
+            if (error != nil) {
+                return println(error)
+            }
+            
+            // FIXME: We need to cut this down to one HTTP call,
+            //        and we need to cache the images for ~ 1 day
+            
+            var parsedData: NSArray = self.parseJson(data)["data"] as NSArray
+            var imageObject: NSDictionary = parsedData[0] as NSDictionary
+            var images: NSDictionary = imageObject["images"] as NSDictionary
+            var fixedWidth: NSDictionary = images["fixed_width"] as NSDictionary
+            var gifUrlString: String = fixedWidth["url"] as String
+            var gifUrl: NSURL = NSURL.URLWithString(gifUrlString)
+            
+            var imageTask = NSURLSession.sharedSession().dataTaskWithURL(gifUrl) {(imageData, imageResponse, imageError) in
+                if (imageError != nil) {
+                    return println(imageError)
+                }
+            
+                var backgroundImage = UIImage.animatedImageWithData(imageData as NSData)
+            
+                button.setBackgroundImage(backgroundImage, forState: .Normal)
+            }
+            
+            imageTask.resume()
+            
+        }
         
-        button.setBackgroundImage(backgroundImage, forState: .Normal)
+        task.resume()
     }
 
     func getAndInsertRandomGifUrl(query: String, proxy: UITextDocumentProxy) {
@@ -97,10 +129,10 @@ class KeyboardViewController: UIInputViewController {
             var images: NSDictionary = imageObject["images"] as NSDictionary
             var fixedWidth: NSDictionary = images["fixed_width"] as NSDictionary
             var gifUrlString: String = fixedWidth["url"] as String
-//            var gifUrl: NSURL = NSURL.URLWithString(gifUrlString)
             
-//            var request = NSURLRequest(URL: gifUrl)
-//            self.webView.loadRequest(request)
+            // FIXME: Page through the list of available GIFs after the first click,
+            //        inserting a new one each click.
+            
             proxy.insertText(gifUrlString)
         }
 
