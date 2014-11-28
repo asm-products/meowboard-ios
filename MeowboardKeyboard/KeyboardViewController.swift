@@ -85,7 +85,7 @@ class KeyboardViewController: UIInputViewController {
     func getDefaultGifAndSetAsButtonBackground(button: UIButton) {
         var cleanedQuery = cleanQuery(button.titleForState(.Normal) as String!)
         var url = NSURL(string: "http://api.giphy.com/v1/gifs/search?q=\(cleanedQuery)&api_key=\(API_KEY)")
-        var task = NSURLSession.sharedSession().dataTaskWithURL(url) {(data, response, error) in
+        var task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
             if (error != nil) {
                 return println(error)
             }
@@ -98,7 +98,7 @@ class KeyboardViewController: UIInputViewController {
             var images: NSDictionary = imageObject["images"] as NSDictionary
             var fixedWidth: NSDictionary = images["fixed_width"] as NSDictionary
             var gifUrlString: String = fixedWidth["url"] as String
-            var gifUrl: NSURL = NSURL.URLWithString(gifUrlString)
+            var gifUrl: NSURL! = NSURL(string: gifUrlString)
             
             var imageTask = NSURLSession.sharedSession().dataTaskWithURL(gifUrl) {(imageData, imageResponse, imageError) in
                 if (imageError != nil) {
@@ -120,7 +120,7 @@ class KeyboardViewController: UIInputViewController {
     func getAndInsertRandomGifUrl(query: String, proxy: UITextDocumentProxy) {
         var cleanedQuery = cleanQuery(query)
         var url = NSURL(string: "http://api.giphy.com/v1/gifs/search?q=\(cleanedQuery)&api_key=\(API_KEY)")
-        var task = NSURLSession.sharedSession().dataTaskWithURL(url) {(data, response, error) in
+        var task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
             if (error != nil) {
                 return println(error)
             }
