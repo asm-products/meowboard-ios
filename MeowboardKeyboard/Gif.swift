@@ -25,12 +25,12 @@ extension UIImage {
         let cfProperties = CGImageSourceCopyPropertiesAtIndex(source, index, nil)
         let properties: NSDictionary = cfProperties // Make NSDictionary
         
-        var gifProperties : NSDictionary = properties[kCGImagePropertyGIFDictionary] as NSDictionary
+        var gifProperties : NSDictionary = properties.objectForKey(kCGImagePropertyGIFDictionary) as NSDictionary
         
         // Get delay time
-        var number : AnyObject! = gifProperties[kCGImagePropertyGIFUnclampedDelayTime]
+        var number : AnyObject! = gifProperties.objectForKey(kCGImagePropertyGIFUnclampedDelayTime)
         if number.doubleValue == 0 {
-            number = gifProperties[kCGImagePropertyGIFDelayTime]
+            number = gifProperties.objectForKey(kCGImagePropertyGIFDelayTime)
         }
         
         delay = number as Double
@@ -123,7 +123,7 @@ extension UIImage {
         var frame: UIImage
         var frameCount: Int
         for i in 0..<count {
-            frame = UIImage(CGImage: images[Int(i)])
+            frame = UIImage(CGImage: images[Int(i)])!
             frameCount = Int(delays[Int(i)] / gcd)
             
             for j in 0..<frameCount {
